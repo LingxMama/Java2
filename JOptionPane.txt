@@ -1,0 +1,45 @@
+import javax.swing.JOptionPane;
+
+public class Ko {
+    public static void main(String[] args) {
+        
+        String correctUsername = "user";
+        String correctPassword = "pass";
+
+        String username;
+        String password;
+
+        while (true) {
+            username = JOptionPane.showInputDialog("Enter your username:");
+            password = JOptionPane.showInputDialog("Enter your password:");
+
+            if (username.equals(correctUsername) && password.equals(correctPassword)) {
+                break;
+            } else {
+                JOptionPane.showMessageDialog(null, "Incorrect username or password. Please try again.");
+            }
+        }
+        int length = Integer.parseInt(JOptionPane.showInputDialog("Enter the number of elements you want to input:"));
+        int[] numbers = new int[length];
+
+        double sumEven = 0;
+        int countEven = 0;
+
+        for (int i = 0; i < length; i++) {
+            int number = Integer.parseInt(JOptionPane.showInputDialog("Enter number " + (i + 1) + ":"));
+            numbers[i] = number;
+
+            if (number % 2 == 0) {
+                sumEven += number;
+                countEven++;
+            }
+        }
+
+if (countEven > 0) {
+            double averageEven = sumEven / countEven;
+            JOptionPane.showMessageDialog(null, "The average of the even numbers is: " + averageEven);
+        } else {
+            JOptionPane.showMessageDialog(null, "No even numbers were entered.");
+        }
+    }
+}
